@@ -26,7 +26,6 @@
     /* ----------------------------------------------------- */
     /* FIXIERTE KOPFZEILE */
     /* ----------------------------------------------------- */
-
     .fixed-header {
         position: fixed;
         top: 0;
@@ -56,7 +55,6 @@
     /* ----------------------------------------------------- */
     /* BURGER-MENÜ */
     /* ----------------------------------------------------- */
-
     #burger {
         font-size: 28px;
         cursor: pointer;
@@ -83,10 +81,13 @@
     }
 
     /* ----------------------------------------------------- */
-    /* PROFIL */
+    /* PROFIL + SOCIALS */
     /* ----------------------------------------------------- */
 
-    #profile { text-align: center; padding: 25px 15px; }
+    #profile { 
+        text-align: center; 
+        padding: 25px 15px; 
+    }
 
     #profile img {
         width: 130px; height: 130px;
@@ -95,19 +96,23 @@
         object-fit: cover;
     }
 
-    /* ----------------------------------------------------- */
-    /* SOCIAL ICONS (NEBENEINANDER) */
-    /* ----------------------------------------------------- */
+    #profile h2 {
+        margin-top: 10px; /* NÄHER ans Bild */
+        margin-bottom: 10px;
+    }
 
+    /* SOCIAL ICONS nebeneinander */
     #social-icons {
         display: flex;
         justify-content: center;
         gap: 25px;
-        margin-top: 20px;
+        margin-top: 10px;
+        margin-bottom: 10px;
     }
 
     #social-icons div {
         text-align: center;
+        cursor: pointer;
     }
 
     #social-icons img {
@@ -121,18 +126,29 @@
 
     #social-icons img:hover { transform: scale(1.1); }
 
-    /* ----------------------------------------------------- */
-    /* KONTAKT ICON */
-    /* ----------------------------------------------------- */
-
-    .mail-icon {
-        font-size: 32px;
-        cursor: pointer;
-        margin-bottom: 5px;
+    #social-icons p {
+        margin-top: 5px; /* NÄHER an Icons */
+        font-size: 14px;
     }
 
     /* ----------------------------------------------------- */
-    /* KATEGORIEN (Startseite) */
+    /* KONTAKT SYMBOL */
+    /* ----------------------------------------------------- */
+    .contact-box {
+        margin-top: 15px;
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    .contact-box .mail-icon {
+        font-size: 30px;
+    }
+
+    /* ----------------------------------------------------- */
+    /* KATEGORIEN */
     /* ----------------------------------------------------- */
 
     .category-grid {
@@ -177,7 +193,8 @@
     }
 
     .link-item img {
-        width: 100%; aspect-ratio: 1/1;
+        width: 100%; 
+        aspect-ratio: 1/1;
         object-fit: cover;
         border-radius: 10px;
     }
@@ -226,31 +243,30 @@
         <img src="1.png">
         <h2>inasalomarii</h2>
 
-        <!-- KONTAKT Icon -->
-        <div onclick="window.location.href='mailto:inasalomaribusiness@icloud.com'">
-            <div class="mail-icon">✉️</div>
-            <strong>Kontakt</strong>
-        </div>
-
-        <p>Standort: NRW</p>
-
-        <!-- Social Media nebeneinander -->
+        <!-- SOCIAL MEDIA ICONS + USERNAMES ANKLICKBAR -->
         <div id="social-icons">
-            <div>
-                <a href="#"><img src="ig-logo.png"></a>
+            <div onclick="window.open('https://www.instagram.com/omariinas/', '_blank')">
+                <img src="ig-logo.png">
                 <p>@omariinas</p>
             </div>
 
-            <div>
-                <a href="#"><img src="tt-logo.png"></a>
+            <div onclick="window.open('https://www.tiktok.com/@inasalomarii?is_from_webapp=1&sender_device=pc', '_blank')">
+                <img src="tt-logo.png">
                 <p>@inasalomarii</p>
             </div>
+        </div>
+
+        <!-- KONTAKT -->
+        <div class="contact-box" onclick="window.location.href='mailto:inasalomaribusiness@icloud.com'">
+            <span class="mail-icon">✉️</span>
+            <strong>Kontakt</strong>
         </div>
 
     </div>
 
     <h3>Kategorien</h3>
 
+    <!-- 6 Kategorien -->
     <div class="category-grid">
 
         <div class="category" onclick="openCategory('Kategorie1','Kategorie 1','2.png')">
@@ -303,7 +319,10 @@
 
 <script>
 
-/* PRODUKT-DATEN */
+/* ------------------------------------------------------------ */
+/* PRODUKT-LISTEN (alle Kategorien wieder mit 6 Produkten) */
+/* ------------------------------------------------------------ */
+
 const products = {
     Kategorie1: [
         { img: "1.png", title: "Produkt 1", url: "#" },
@@ -313,14 +332,52 @@ const products = {
         { img: "5.png", title: "Produkt 5", url: "#" },
         { img: "6.png", title: "Produkt 6", url: "#" },
     ],
-    Kategorie2: [...products.Kategorie1],
-    Kategorie3: [...products.Kategorie1],
-    Kategorie4: [...products.Kategorie1],
-    Kategorie5: [...products.Kategorie1],
-    Kategorie6: [...products.Kategorie1],
+    Kategorie2: [
+        { img: "1.png", title: "Produkt 1", url: "#" },
+        { img: "2.png", title: "Produkt 2", url: "#" },
+        { img: "3.png", title: "Produkt 3", url: "#" },
+        { img: "4.png", title: "Produkt 4", url: "#" },
+        { img: "5.png", title: "Produkt 5", url: "#" },
+        { img: "6.png", title: "Produkt 6", url: "#" },
+    ],
+    Kategorie3: [
+        { img: "1.png", title: "Produkt 1", url: "#" },
+        { img: "2.png", title: "Produkt 2", url: "#" },
+        { img: "3.png", title: "Produkt 3", url: "#" },
+        { img: "4.png", title: "Produkt 4", url: "#" },
+        { img: "5.png", title: "Produkt 5", url: "#" },
+        { img: "6.png", title: "Produkt 6", url: "#" },
+    ],
+    Kategorie4: [
+        { img: "1.png", title: "Produkt 1", url: "#" },
+        { img: "2.png", title: "Produkt 2", url: "#" },
+        { img: "3.png", title: "Produkt 3", url: "#" },
+        { img: "4.png", title: "Produkt 4", url: "#" },
+        { img: "5.png", title: "Produkt 5", url: "#" },
+        { img: "6.png", title: "Produkt 6", url: "#" },
+    ],
+    Kategorie5: [
+        { img: "1.png", title: "Produkt 1", url: "#" },
+        { img: "2.png", title: "Produkt 2", url: "#" },
+        { img: "3.png", title: "Produkt 3", url: "#" },
+        { img: "4.png", title: "Produkt 4", url: "#" },
+        { img: "5.png", title: "Produkt 5", url: "#" },
+        { img: "6.png", title: "Produkt 6", url: "#" },
+    ],
+    Kategorie6: [
+        { img: "1.png", title: "Produkt 1", url: "#" },
+        { img: "2.png", title: "Produkt 2", url: "#" },
+        { img: "3.png", title: "Produkt 3", url: "#" },
+        { img: "4.png", title: "Produkt 4", url: "#" },
+        { img: "5.png", title: "Produkt 5", url: "#" },
+        { img: "6.png", title: "Produkt 6", url: "#" },
+    ]
 };
 
+/* ------------------------------------------------------------ */
 /* KATEGORIE ÖFFNEN */
+/* ------------------------------------------------------------ */
+
 function openCategory(id, title, image) {
     showPage("categoryPage");
     document.getElementById("categoryTitle").innerText = title;
@@ -341,7 +398,10 @@ function openCategory(id, title, image) {
     });
 }
 
+/* ------------------------------------------------------------ */
 /* SEITEN WECHSELN */
+/* ------------------------------------------------------------ */
+
 function showPage(page) {
     ["homePage", "categoryPage", "impressumPage"].forEach(id => {
         document.getElementById(id).style.display = "none";
@@ -349,26 +409,38 @@ function showPage(page) {
     document.getElementById(page).style.display = "block";
 }
 
+/* ------------------------------------------------------------ */
 /* IMPRESSUM */
+/* ------------------------------------------------------------ */
+
 function openImpressum() {
     toggleMenu();
     showPage("impressumPage");
 }
 
-/* ZURÜCK */
+/* ------------------------------------------------------------ */
+/* ZURÜCK BUTTON */
+/* ------------------------------------------------------------ */
+
 function goBack() {
     showPage("homePage");
 }
 
+/* ------------------------------------------------------------ */
 /* SHARE */
+/* ------------------------------------------------------------ */
+
 function shareLink() {
     navigator.share?.({
         title: "Link",
         url: location.href
-    }) || alert("Dieses Gerät unterstützt Teilen nicht.");
+    }) || alert("Dieses Gerät unterstützt die Teilen-Funktion nicht.");
 }
 
+/* ------------------------------------------------------------ */
 /* BURGER */
+/* ------------------------------------------------------------ */
+
 function toggleMenu() {
     const m = document.getElementById("menu");
     m.style.display = m.style.display === "block" ? "none" : "block";
