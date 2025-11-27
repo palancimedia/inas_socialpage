@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dein Social Link</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background: #f7f7f7;
+        color: #111;
+    }
+
+    /* --- Allgemein --- */
+    .hidden { display: none; }
+    .container { padding: 20px; }
+
+    img.square {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+    /* --- Header Startseite --- */
+    #profile {
+        text-align: center;
+        padding: 20px;
+    }
+    #profile img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+    #social-icons img {
+        width: 40px;
+        margin: 10px;
+    }
+
+    /* --- Kategorien --- */
+    .category-grid {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+    .category {
+        flex: 1;
+        text-align: center;
+    }
+
+    /* --- Kategorien-Seite --- */
+    #categoryPage .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 0;
+    }
+    #categoryPage .header img {
+        width: 40px; height: 40px; border-radius: 50%;
+    }
+
+    .links-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        margin-top: 10px;
+    }
+
+    .link-item {
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .link-item img {
+        width: 100%;
+        aspect-ratio: 1/1;
+        border-radius: 10px;
+        object-fit: cover;
+    }
+</style>
+</head>
+
+<body>
+
+<!-- ----------------------------------------------------- -->
+<!-- 🟦 STARTSEITE -->
+<!-- ----------------------------------------------------- -->
+
+<div id="homePage" class="container">
+
+    <div id="profile">
+        <img src="DEIN_PROFILBILD.jpg" alt="Profilbild">
+        <h2>Dein Benutzername</h2>
+        <p>Email: deine@mail.de</p>
+        <p>Standort: Deine Stadt</p>
+        <a href="IMPRESSUM_LINK" target="_blank">Impressum</a>
+
+        <div id="social-icons">
+            <a href="YOUTUBE_LINK"><img src="yt.png"></a>
+            <a href="TIKTOK_LINK"><img src="tt.png"></a>
+            <a href="INSTAGRAM_LINK"><img src="ig.png"></a>
+        </div>
+    </div>
+
+    <h3>Kategorien</h3>
+
+    <!-- Beispiel Kategorie-Reihe -->
+    <div class="category-grid">
+        <div class="category" onclick="openCategory('winter', 'Winter Outfits', 'winter.jpg')">
+            <img class="square" src="winter.jpg">
+            <p>Winter Outfits (12)</p>
+        </div>
+
+        <div class="category" onclick="openCategory('sommer', 'Sommer Outfits', 'sommer.jpg')">
+            <img class="square" src="sommer.jpg">
+            <p>Sommer Outfits (8)</p>
+        </div>
+    </div>
+
+    <!-- weitere Reihen beliebig wiederholbar -->
+
+</div>
+
+
+
+<!-- ----------------------------------------------------- -->
+<!-- 🟧 KATEGORIE-SEITE -->
+<!-- ----------------------------------------------------- -->
+
+<div id="categoryPage" class="container hidden">
+
+    <div class="header">
+        <button onclick="goBack()">⬅︎</button>
+
+        <div style="display:flex;align-items:center;gap:10px;">
+            <img id="catProfile" src="DEIN_PROFILBILD.jpg">
+            <strong>Dein Benutzername</strong>
+        </div>
+
+        <button onclick="shareLink()">🔗 Teilen</button>
+    </div>
+
+    <h2 id="categoryTitle"></h2>
+    <img id="categoryImage" class="square" src="">
+
+    <h3 id="linkCount"></h3>
+
+    <div id="linksContainer" class="links-grid">
+        <!-- Links werden per JS geladen -->
+    </div>
+
+</div>
+
+<script>
+/* Beispiel-Daten für Produkte */
+const products = {
+    winter: [
+        { img: "winter1.jpg", title: "Winter Jacke", url: "LINK1" },
+        { img: "winter2.jpg", title: "Schal", url: "LINK2" },
+        { img: "winter3.jpg", title: "Winter Boots", url: "LINK3" },
+    ],
+
+    sommer: [
+        { img: "sommer1.jpg", title: "Sommer Kleid", url: "LINK4" },
+        { img: "sommer2.jpg", title: "Shorts", url: "LINK5" },
+    ]
+};
+
+/* Öffnet Kategorie */
+function openCategory(key, title, image) {
+    document.getElementById("homePage").classList.add("hidden");
+    document.getElementById("categoryPage").classList.remove("hidden");
+
+    document.getElementById("categoryTitle").innerText = title;
+    document.getElementById("categoryImage").src = image;
+
+    const list = products[key];
+    document.getElementById("linkCount").innerText =
+        `Produkte (${list.length})`;
+
+    const container = document.getElementById("linksContainer");
+    container.innerHTML = "";
+
+    list.forEach(p => {
+        container.innerHTML += `
+            <div class="link-item" onclick="window.open('${p.url}', '_blank')">
+                <img src="${p.img}">
+                <p>${p.title}</p>
+            </div>
+        `;
+    });
+}
+
+function goBack() {
+    document.getElementById("categoryPage").classList.add("hidden");
+    document.getElementById("homePage").classList.remove("hidden");
+}
+
+function shareLink() {
+    navigator.share
+        ? navigator.share({ title: "Mein Link", url: window.location.href })
+        : alert("Teilen wird von deinem Gerät nicht unterstützt.");
+}
+</script>
+
+</body>
+</html>
