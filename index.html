@@ -23,7 +23,9 @@
 
     .container { padding: 20px; }
 
-    /* --- Profil --- */
+    /* ----------------------------------------------------- */
+    /* PROFILBEREICH */
+    /* ----------------------------------------------------- */
 
     #profile {
         text-align: center;
@@ -38,25 +40,67 @@
         border: 5px solid var(--accent);
     }
 
+    /* ----------------------------------------------------- */
+    /* SOCIAL ICONS (jetzt rund + nur IG & TikTok) */
+    /* ----------------------------------------------------- */
+
     #social-icons img {
-        width: 38px;
-        margin: 38px;
-        opacity: 0.9;
+        width: 50px;
+        height: 50px;
+        margin: 15px;
+        border-radius: 50%; /* rund */
+        background: white;
+        padding: 8px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        transition: 0.2s;
     }
 
     #social-icons img:hover {
+        transform: scale(1.1);
         opacity: 1;
     }
 
-    /* --- Kategorien --- */
+    /* ----------------------------------------------------- */
+    /* BURGER-MENÜ */
+    /* ----------------------------------------------------- */
+
+    #burger {
+        position: fixed;
+        right: 18px;
+        top: 18px;
+        font-size: 30px;
+        cursor: pointer;
+        z-index: 10;
+    }
+
+    #menu {
+        position: fixed;
+        right: 0;
+        top: 0;
+        width: 65%;
+        height: 100%;
+        background: var(--card);
+        box-shadow: -3px 0 10px rgba(0,0,0,0.15);
+        padding: 20px;
+        display: none;
+        z-index: 11;
+    }
+
+    #menu h3 { margin-top: 0; }
+    #menu p { line-height: 1.5; }
+
+    /* ----------------------------------------------------- */
+    /* KATEGORIEN STARTSEITE → 2 Spalten × 3 Reihen */
+    /* ----------------------------------------------------- */
+
     .category-grid {
-        display: flex;
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* 2 Spalten */
         gap: 15px;
         margin-bottom: 20px;
     }
 
     .category {
-        flex: 1;
         background: var(--card);
         padding: 10px;
         border-radius: 12px;
@@ -72,7 +116,9 @@
         border-radius: 10px;
     }
 
-    /* --- Kategorien-Seite --- */
+    /* ----------------------------------------------------- */
+    /* KATEGORIE-SEITE */
+    /* ----------------------------------------------------- */
 
     #categoryPage .header {
         display: flex;
@@ -125,42 +171,103 @@
 <body>
 
 <!-- ------------------------------------------------------------ -->
-<!-- 🟫 STARTSEITE -->
+<!-- BURGER ICON -->
+<!-- ------------------------------------------------------------ -->
+<div id="burger" onclick="toggleMenu()">☰</div>
+
+<!-- ------------------------------------------------------------ -->
+<!-- MENÜ (Impressum text + Baustelle Icon) -->
+<!-- ------------------------------------------------------------ -->
+<div id="menu">
+    <h3>Impressum</h3>
+    <p>🚧 Hier ist noch eine Baustelle!  
+    Dieser Bereich wird noch erstellt.</p>
+
+    <button onclick="toggleMenu()">Schließen</button>
+</div>
+
+<!-- ------------------------------------------------------------ -->
+<!-- STARTSEITE -->
 <!-- ------------------------------------------------------------ -->
 
 <div id="homePage" class="container">
+
     <div id="profile">
         <img src="1.png">
         <h2>inasalomarii</h2>
-        <p>Email: inasalomaribusiness@icloud.com</p>
+
+        <!-- KONTAKT statt Email -->
+        <p><strong>KONTAKT:</strong> inasalomaribusiness@icloud.com</p>
+
         <p>Standort: NRW</p>
-        <a href="https://www.instagram.com/omariinas/">Impressum</a>
+
+        <!-- Impressum-Link entfernt! -->
 
         <div id="social-icons">
-            <a href="#"><img src="ig-logo.png"></a>
-            <a href="https://www.tiktok.com/@inasalomarii?is_from_webapp=1&sender_device=pc"><img src="tt-logo.png"></a>
-            <a href="https://www.instagram.com/omariinas/"><img src="yt-logo.png"></a>
+            <!-- Instagram (unten Benutzername) -->
+            <div>
+                <a href="#"><img src="ig-logo.png"></a>
+                <p>@instagramname</p> <!-- HIER deinen Namen eintragen -->
+            </div>
+
+            <!-- TikTok -->
+            <div>
+                <a href="#"><img src="tt-logo.png"></a>
+                <p>@tiktokname</p> <!-- HIER deinen Namen eintragen -->
+            </div>
         </div>
     </div>
 
     <h3>Kategorien</h3>
 
+    <!-- 6 Kategorien -->
     <div class="category-grid">
-        <div class="category" onclick="openCategory('Überschrift 1', 'Überschrift 1', '2.png')">
+
+        <!-- Jede Kategorie öffnet Kategorie-Seite -->
+        <!-- Kategorienamen umbenannt: Kategorie 1–6 -->
+        <!-- HIER BILD ANPASSEN -->
+        <!-- // Kategorie 1 -->
+        <div class="category" onclick="openCategory('Kategorie1', 'Kategorie 1', '2.png')">
             <img src="2.png">
-            <p>Überschrift 1 (12)</p>
+            <p>Kategorie 1 (6)</p>
         </div>
 
-        <div class="category" onclick="openCategory('Titel', 'Titel 1', '3.png')">
+        <!-- // Kategorie 2 -->
+        <div class="category" onclick="openCategory('Kategorie2', 'Kategorie 2', '3.png')">
             <img src="3.png">
-            <p>Titel (8)</p>
+            <p>Kategorie 2 (6)</p>
         </div>
+
+        <!-- // Kategorie 3 -->
+        <div class="category" onclick="openCategory('Kategorie3', 'Kategorie 3', '4.png')">
+            <img src="4.png">
+            <p>Kategorie 3 (6)</p>
+        </div>
+
+        <!-- // Kategorie 4 -->
+        <div class="category" onclick="openCategory('Kategorie4', 'Kategorie 4', '5.png')">
+            <img src="5.png">
+            <p>Kategorie 4 (6)</p>
+        </div>
+
+        <!-- // Kategorie 5 -->
+        <div class="category" onclick="openCategory('Kategorie5', 'Kategorie 5', '6.png')">
+            <img src="6.png">
+            <p>Kategorie 5 (6)</p>
+        </div>
+
+        <!-- // Kategorie 6 -->
+        <div class="category" onclick="openCategory('Kategorie6', 'Kategorie 6', '7.png')">
+            <img src="7.png">
+            <p>Kategorie 6 (6)</p>
+        </div>
+
     </div>
 </div>
 
 
 <!-- ------------------------------------------------------------ -->
-<!-- 🟫 KATEGORIE-SEITE -->
+<!-- KATEGORIE-SEITE -->
 <!-- ------------------------------------------------------------ -->
 
 <div id="categoryPage" class="container" style="display:none;">
@@ -186,17 +293,66 @@
 </div>
 
 <script>
+
+/* ------------------------------------------------------------ */
+/* PRODUKT-LISTEN FÜR ALLE 6 KATEGORIEN */
+/* ------------------------------------------------------------ */
+/* HIER LINKS EINTRAGEN → url: "DEIN LINK HIER" */
+
 const products = {
-    Überschrift 1: [
-        { img: "1.png", title: "Überschrift 1 Jacke", url: "#" },
+    Kategorie1: [
+        { img: "1.png", title: "Produkt 1", url: "#" },
         { img: "2.png", title: "Produkt 2", url: "#" },
-        { img: "3.png", title: "Überschrift 1 Boots", url: "#" }
+        { img: "3.png", title: "Produkt 3", url: "#" },
+        { img: "4.png", title: "Produkt 4", url: "#" },
+        { img: "5.png", title: "Produkt 5", url: "#" },
+        { img: "6.png", title: "Produkt 6", url: "#" },
     ],
-    Titel: [
-        { img: "1.png", title: "Titel Kleid", url: "#" },
-        { img: "2.png", title: "Produkt 2", url: "#" }
-    ]
+    Kategorie2: [
+        { img: "1.png", title: "Produkt 1", url: "#" },
+        { img: "2.png", title: "Produkt 2", url: "#" },
+        { img: "3.png", title: "Produkt 3", url: "#" },
+        { img: "4.png", title: "Produkt 4", url: "#" },
+        { img: "5.png", title: "Produkt 5", url: "#" },
+        { img: "6.png", title: "Produkt 6", url: "#" },
+    ],
+    Kategorie3: [
+        { img: "1.png", title: "Produkt 1", url: "#" },
+        { img: "2.png", title: "Produkt 2", url: "#" },
+        { img: "3.png", title: "Produkt 3", url: "#" },
+        { img: "4.png", title: "Produkt 4", url: "#" },
+        { img: "5.png", title: "Produkt 5", url: "#" },
+        { img: "6.png", title: "Produkt 6", url: "#" },
+    ],
+    Kategorie4: [
+        { img: "1.png", title: "Produkt 1", url: "#" },
+        { img: "2.png", title: "Produkt 2", url: "#" },
+        { img: "3.png", title: "Produkt 3", url: "#" },
+        { img: "4.png", title: "Produkt 4", url: "#" },
+        { img: "5.png", title: "Produkt 5", url: "#" },
+        { img: "6.png", title: "Produkt 6", url: "#" },
+    ],
+    Kategorie5: [
+        { img: "1.png", title: "Produkt 1", url: "#" },
+        { img: "2.png", title: "Produkt 2", url: "#" },
+        { img: "3.png", title: "Produkt 3", url: "#" },
+        { img: "4.png", title: "Produkt 4", url: "#" },
+        { img: "5.png", title: "Produkt 5", url: "#" },
+        { img: "6.png", title: "Produkt 6", url: "#" },
+    ],
+    Kategorie6: [
+        { img: "1.png", title: "Produkt 1", url: "#" },
+        { img: "2.png", title: "Produkt 2", url: "#" },
+        { img: "3.png", title: "Produkt 3", url: "#" },
+        { img: "4.png", title: "Produkt 4", url: "#" },
+        { img: "5.png", title: "Produkt 5", url: "#" },
+        { img: "6.png", title: "Produkt 6", url: "#" },
+    ],
 };
+
+/* ------------------------------------------------------------ */
+/* KATEGORIE ÖFFNEN */
+/* ------------------------------------------------------------ */
 
 function openCategory(id, title, image) {
     document.getElementById("homePage").style.display = "none";
@@ -221,10 +377,18 @@ function openCategory(id, title, image) {
     });
 }
 
+/* ------------------------------------------------------------ */
+/* ZURÜCK BUTTON */
+/* ------------------------------------------------------------ */
+
 function goBack() {
     document.getElementById("categoryPage").style.display = "none";
     document.getElementById("homePage").style.display = "block";
 }
+
+/* ------------------------------------------------------------ */
+/* SHARE BUTTON */
+/* ------------------------------------------------------------ */
 
 function shareLink() {
     if (navigator.share) {
@@ -233,15 +397,17 @@ function shareLink() {
         alert("Dein Gerät unterstützt leider keine Share-Funktion.");
     }
 }
+
+/* ------------------------------------------------------------ */
+/* BURGER-MENÜ FUNKTION */
+    /* ------------------------------------------------------------ */
+
+function toggleMenu() {
+    const menu = document.getElementById("menu");
+    menu.style.display = menu.style.display === "block" ? "none" : "block";
+}
+
 </script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
