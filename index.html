@@ -3,174 +3,144 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Inasalomarii</title>
+<title>inasalomarii</title>
+
 <style>
 :root {
-    --bg: #FAF8F4;
-    --card: #FFFFFF;
-    --text: #2E2A27;
-    --accent: #DCC6A1;
-    --accent-dark: #B49B78;
+    --bg:#FAF8F4;
+    --card:#FFFFFF;
+    --text:#2E2A27;
+    --accent:#DCC6A1;
 }
-body {
-    margin: 0;
-    font-family: "Helvetica", sans-serif;
-    background: var(--bg);
-    color: var(--text);
-}
-.container { padding: 20px; }
-/* ---------------- FIXIERTER HEADER ---------------- */
-.fixed-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    padding: 12px 15px;
-    background: var(--bg);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 50;
-    border-bottom: 1px solid #ddd;
-}
-.fixed-header img.profile-small {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    object-fit: cover;
-    transition: all 0.3s ease;
-}
-.fixed-header .header-title {
-    font-weight: bold;
-    margin-left: 10px;
-    transition: all 0.3s ease;
-    white-space: nowrap;
-}
-/* ---------------- BURGER-MENÜ ---------------- */
-#burger {
-    font-size: 28px;
-    cursor: pointer;
-}
-#menu {
-    position: fixed;
-    right: 0;
-    top: 0;
-    width: 65%;
-    height: 100%;
-    background: var(--card);
-    display: none; /* standardmäßig ausgeblendet */
-    box-shadow: -3px 0 10px rgba(0,0,0,0.15);
-    padding: 20px;
-    z-index: 60;
-}
-#menu a {
-    display: block;
-    padding: 10px 0;
-    font-size: 18px;
-    color: var(--text);
-}
-#menu .close-btn {
-    font-size: 24px;
-    cursor: pointer;
-    text-align: right;
-}
-/* ---------------- PROFIL + SOCIALS ---------------- */
-#profile { text-align: center; padding: 25px 15px; }
-#profile img {
-    width: 130px; height: 130px;
-    border-radius: 50%;
-    object-fit: cover;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    transition: all 0.3s ease;
-}
-#profile h2 {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    transition: all 0.3s ease;
-}
-/* Social Icons */
-#social-icons { display: flex; justify-content: center; gap: 25px; margin-top: 10px; margin-bottom: 10px; }
-#social-icons div { text-align: center; cursor: pointer; }
-#social-icons img {
-    width: 55px; height: 55px;
-    border-radius: 50%;
-    background: white;
-    padding: 8px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-    transition: .2s;
-}
-#social-icons img:hover { transform: scale(1.1); }
-#social-icons p { margin-top: 5px; font-size: 14px; }
-/* Kontaktbox */
-.contact-box { margin-top: 15px; display: flex; justify-content: center; gap: 8px; align-items: center; cursor: pointer; transition: transform 0.2s; }
-.contact-box:hover { transform: scale(1.1); }
-.contact-box .mail-icon { font-size: 30px; }
-/* ---------------- KATEGORIEN ---------------- */
-.category-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-.category { background: var(--card); padding: 10px; border-radius: 12px; box-shadow: 0 3px 10px rgba(0,0,0,0.08); text-align: center; cursor: pointer; }
-.category img { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 10px; }
-/* ---------------- KATEGORIESEITE ---------------- */
-.links-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-.link-item { background: var(--card); padding: 10px; border-radius: 10px; text-align: center; cursor: pointer; box-shadow: 0 3px 10px rgba(0,0,0,0.05); }
-.link-item img { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 10px; }
 
+body {margin:0;font-family:"Helvetica",sans-serif;background:var(--bg);color:var(--text);}
+.container{padding:20px;}
+
+/* FIXIERTE KOPFZEILE */
+.fixed-header{
+    position:fixed;top:0;left:0;right:0;padding:12px 15px;
+    background:var(--bg);display:flex;justify-content:space-between;align-items:center;
+    z-index:20;border-bottom:1px solid #ddd;
+}
+.fixed-header img{
+    width:42px;height:42px;border-radius:50%;object-fit:cover;transition:0.3s;
+}
+.fixed-header strong{
+    margin-left:10px;transition:0.3s;
+}
+
+/* BURGER-MENÜ */
+#burger{font-size:28px;cursor:pointer;}
+#menu{
+    position:fixed;right:0;top:0;width:65%;height:100%;background:var(--card);
+    display:none;box-shadow:-3px 0 10px rgba(0,0,0,0.15);padding:20px;z-index:30;
+}
+#menu a{display:block;padding:10px 0;font-size:18px;color:var(--text);}
+#menu .closeBtn{cursor:pointer;font-size:20px;margin-top:10px;}
+
+/* PROFIL + SOCIALS */
+#profile{text-align:center;padding:25px 15px;}
+#profile img{width:130px;height:130px;border-radius:50%;object-fit:cover;box-shadow:0 2px 6px rgba(0,0,0,0.2);}
+#profile h2{margin-top:5px;margin-bottom:15px;transition:0.3s;}
+#social-icons{display:flex;justify-content:center;gap:25px;margin-bottom:10px;}
+#social-icons div{text-align:center;cursor:pointer;transition:0.2s;}
+#social-icons img{width:55px;height:55px;border-radius:50%;background:white;padding:8px;box-shadow:0 2px 6px rgba(0,0,0,0.2);transition:.2s;}
+#social-icons img:hover{transform:scale(1.1);}
+#social-icons p{margin-top:5px;font-size:14px;}
+
+/* KONTAKT SYMBOL */
+.contact-box{margin-top:15px;display:flex;justify-content:center;gap:8px;align-items:center;cursor:pointer;transition:.2s;}
+.contact-box:hover{transform:scale(1.1);}
+.contact-box .mail-icon{font-size:30px;}
+
+/* KATEGORIEN */
+.category-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px;}
+.category{background:var(--card);padding:10px;border-radius:12px;box-shadow:0 3px 10px rgba(0,0,0,0.08);text-align:center;cursor:pointer;}
+.category img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:10px;}
+
+/* KATEGORIESEITE */
+.links-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px;}
+.link-item{background:var(--card);padding:10px;border-radius:10px;text-align:center;cursor:pointer;box-shadow:0 3px 10px rgba(0,0,0,0.05);}
+.link-item img{width:100%;aspect-ratio:auto 1;object-fit:cover;border-radius:10px;}
+#categoryTitle{padding-top:10px;margin-bottom:10px;font-size:22px;font-weight:bold;}
 </style>
 </head>
-<body>
+<body class="has-fixed-header">
 
 <!-- FIXIERTER HEADER -->
 <div class="fixed-header">
-    <div style="display:flex; align-items:center;">
-        <span id="backButton" style="cursor:pointer; display:none;">←</span>
-        <img src="1.png" class="profile-small">
-        <span class="header-title">inasalomarii</span>
+    <div id="backButton" style="cursor:pointer;display:none;" onclick="goBack()">←</div>
+    <div style="display:flex;align-items:center;">
+        <img id="headerProfile" src="1.png">
+        <strong id="headerName">inasalomarii</strong>
     </div>
-    <div style="display:flex; gap:15px;">
+    <div style="display:flex;gap:15px;align-items:center;">
         <button onclick="shareLink()">Teilen</button>
         <div id="burger" onclick="toggleMenu()">☰</div>
     </div>
 </div>
 
-<!-- SIDEBAR / BURGER MENU -->
+<!-- MENÜ -->
 <div id="menu">
-    <div class="close-btn" onclick="toggleMenu()">✖</div>
     <h3>Menü</h3>
     <a href="#" onclick="openImpressum()">📄 Impressum</a>
+    <a href="#" onclick="openDatenschutz()">🔒 Datenschutz</a>
+    <span class="closeBtn" onclick="toggleMenu()">✖</span>
 </div>
 
 <!-- STARTSEITE -->
 <div id="homePage" class="container">
+
     <div id="profile">
-        <img src="1.png" id="profilePic">
+        <img id="profileImg" src="1.png">
         <h2 id="profileName">inasalomarii</h2>
+
+        <!-- SOCIAL MEDIA -->
         <div id="social-icons">
-            <div onclick="window.open('https://www.instagram.com/omariinas/', '_blank')">
-                <img src="ig-logo.png"><p>@omariinas</p>
+            <div onclick="window.open('https://www.instagram.com/omariinas/','_blank')">
+                <img src="ig-logo.png">
+                <p>@omariinas</p>
             </div>
-            <div onclick="window.open('https://www.tiktok.com/@inasalomarii?is_from_webapp=1&sender_device=pc', '_blank')">
-                <img src="tt-logo.png"><p>@inasalomarii</p>
+            <div onclick="window.open('https://www.tiktok.com/@inasalomarii?is_from_webapp=1&sender_device=pc','_blank')">
+                <img src="tt-logo.png">
+                <p>@inasalomarii</p>
             </div>
         </div>
+
+        <!-- KONTAKT -->
         <div class="contact-box" onclick="window.location.href='mailto:inasalomaribusiness@icloud.com'">
-            <span class="mail-icon">✉️</span><strong>Kontakt</strong>
+            <span class="mail-icon">✉️</span>
+            <strong>Kontakt</strong>
         </div>
     </div>
 
     <h3>Kategorien</h3>
     <div class="category-grid">
-        <div class="category" onclick="openCategory('Kategorie1','Kategorie 1','2.png')"><img src="2.png"><p>Kategorie 1 (6)</p></div>
-        <div class="category" onclick="openCategory('Kategorie2','Kategorie 2','3.png')"><img src="3.png"><p>Kategorie 2 (6)</p></div>
-        <div class="category" onclick="openCategory('Kategorie3','Kategorie 3','4.png')"><img src="4.png"><p>Kategorie 3 (6)</p></div>
-        <div class="category" onclick="openCategory('Kategorie4','Kategorie 4','5.png')"><img src="5.png"><p>Kategorie 4 (6)</p></div>
-        <div class="category" onclick="openCategory('Kategorie5','Kategorie 5','6.png')"><img src="6.png"><p>Kategorie 5 (6)</p></div>
-        <div class="category" onclick="openCategory('Kategorie6','Kategorie 6','7.png')"><img src="7.png"><p>Kategorie 6 (6)</p></div>
+        <div class="category" onclick="openCategory('Kategorie1','Kategorie 1','2.png')">
+            <img src="2.png"><p>Kategorie 1 (6)</p>
+        </div>
+        <div class="category" onclick="openCategory('Kategorie2','Kategorie 2','3.png')">
+            <img src="3.png"><p>Kategorie 2 (6)</p>
+        </div>
+        <div class="category" onclick="openCategory('Kategorie3','Kategorie 3','4.png')">
+            <img src="4.png"><p>Kategorie 3 (6)</p>
+        </div>
+        <div class="category" onclick="openCategory('Kategorie4','Kategorie 4','5.png')">
+            <img src="5.png"><p>Kategorie 4 (6)</p>
+        </div>
+        <div class="category" onclick="openCategory('Kategorie5','Kategorie 5','6.png')">
+            <img src="6.png"><p>Kategorie 5 (6)</p>
+        </div>
+        <div class="category" onclick="openCategory('Kategorie6','Kategorie 6','7.png')">
+            <img src="7.png"><p>Kategorie 6 (6)</p>
+        </div>
     </div>
 </div>
 
 <!-- KATEGORIESEITE -->
 <div id="categoryPage" class="container" style="display:none;">
     <h2 id="categoryTitle"></h2>
-    <img id="categoryImage" style="width:80%; max-width:400px; border-radius:12px; margin-bottom:15px; aspect-ratio:1/1; object-fit:cover;">
+    <img id="categoryImage" style="width:80%;max-width:400px;border-radius:12px;margin-bottom:15px;object-fit:cover;">
     <h3 id="linkCount"></h3>
     <div id="linksContainer" class="links-grid"></div>
 </div>
@@ -178,66 +148,28 @@ body {
 <!-- IMPRESSUM -->
 <div id="impressumPage" class="container" style="display:none;">
     <h2>Impressum</h2>
-    <p>Beispielfirma GmbH<br>Adresse: Musterstraße 1, 12345 Beispielstadt<br>Telefon: 01234 56789<br>Email: info@example.com</p>
+    <p>Beispielstraße 1, 12345 Stadt, Deutschland</p>
+    <p>Telefon: 0123 456789 | E-Mail: beispiel@domain.de</p>
+</div>
+
+<!-- DATENSCHUTZ -->
+<div id="datenschutzPage" class="container" style="display:none;">
+    <h2>Datenschutzerklärung</h2>
+    <p>Beispielstraße 1, 12345 Stadt, Deutschland</p>
+    <p>Diese Website verwendet Cookies und Analysen…</p>
 </div>
 
 <script>
 // PRODUKTE
-const products = {
-    Kategorie1:[{img:"1.png",title:"Produkt 1",url:"#"},
-                {img:"2.png",title:"Produkt 2",url:"#"},
-                {img:"3.png",title:"Produkt 3",url:"#"},
-                {img:"4.png",title:"Produkt 4",url:"#"},
-                {img:"5.png",title:"Produkt 5",url:"#"},
-                {img:"6.png",title:"Produkt 6",url:"#"}],
-    Kategorie2:[{img:"1.png",title:"Produkt 1",url:"#"},
-                {img:"2.png",title:"Produkt 2",url:"#"},
-                {img:"3.png",title:"Produkt 3",url:"#"},
-                {img:"4.png",title:"Produkt 4",url:"#"},
-                {img:"5.png",title:"Produkt 5",url:"#"},
-                {img:"6.png",title:"Produkt 6",url:"#"}],
-    Kategorie3:[{img:"1.png",title:"Produkt 1",url:"#"},
-                {img:"2.png",title:"Produkt 2",url:"#"},
-                {img:"3.png",title:"Produkt 3",url:"#"},
-                {img:"4.png",title:"Produkt 4",url:"#"},
-                {img:"5.png",title:"Produkt 5",url:"#"},
-                {img:"6.png",title:"Produkt 6",url:"#"}],
-    Kategorie4:[{img:"1.png",title:"Produkt 1",url:"#"},
-                {img:"2.png",title:"Produkt 2",url:"#"},
-                {img:"3.png",title:"Produkt 3",url:"#"},
-                {img:"4.png",title:"Produkt 4",url:"#"},
-                {img:"5.png",title:"Produkt 5",url:"#"},
-                {img:"6.png",title:"Produkt 6",url:"#"}],
-    Kategorie5:[{img:"1.png",title:"Produkt 1",url:"#"},
-                {img:"2.png",title:"Produkt 2",url:"#"},
-                {img:"3.png",title:"Produkt 3",url:"#"},
-                {img:"4.png",title:"Produkt 4",url:"#"},
-                {img:"5.png",title:"Produkt 5",url:"#"},
-                {img:"6.png",title:"Produkt 6",url:"#"}],
-    Kategorie6:[{img:"1.png",title:"Produkt 1",url:"#"},
-                {img:"2.png",title:"Produkt 2",url:"#"},
-                {img:"3.png",title:"Produkt 3",url:"#"},
-                {img:"4.png",title:"Produkt 4",url:"#"},
-                {img:"5.png",title:"Produkt 5",url:"#"},
-                {img:"6.png",title:"Produkt 6",url:"#"}]
+const products={
+    Kategorie1:[{img:"1.png",title:"Produkt 1",url:"#"}, {img:"2.png",title:"Produkt 2",url:"#"}, {img:"3.png",title:"Produkt 3",url:"#"}, {img:"4.png",title:"Produkt 4",url:"#"}, {img:"5.png",title:"Produkt 5",url:"#"}, {img:"6.png",title:"Produkt 6",url:"#"}],
+    Kategorie2:[{img:"1.png",title:"Produkt 1",url:"#"}, {img:"2.png",title:"Produkt 2",url:"#"}, {img:"3.png",title:"Produkt 3",url:"#"}, {img:"4.png",title:"Produkt 4",url:"#"}, {img:"5.png",title:"Produkt 5",url:"#"}, {img:"6.png",title:"Produkt 6",url:"#"}],
+    Kategorie3:[{img:"1.png",title:"Produkt 1",url:"#"}, {img:"2.png",title:"Produkt 2",url:"#"}, {img:"3.png",title:"Produkt 3",url:"#"}, {img:"4.png",title:"Produkt 4",url:"#"}, {img:"5.png",title:"Produkt 5",url:"#"}, {img:"6.png",title:"Produkt 6",url:"#"}],
+    Kategorie4:[{img:"1.png",title:"Produkt 1",url:"#"}, {img:"2.png",title:"Produkt 2",url:"#"}, {img:"3.png",title:"Produkt 3",url:"#"}, {img:"4.png",title:"Produkt 4",url:"#"}, {img:"5.png",title:"Produkt 5",url:"#"}, {img:"6.png",title:"Produkt 6",url:"#"}],
+    Kategorie5:[{img:"1.png",title:"Produkt 1",url:"#"}, {img:"2.png",title:"Produkt 2",url:"#"}, {img:"3.png",title:"Produkt 3",url:"#"}, {img:"4.png",title:"Produkt 4",url:"#"}, {img:"5.png",title:"Produkt 5",url:"#"}, {img:"6.png",title:"Produkt 6",url:"#"}],
+    Kategorie6:[{img:"1.png",title:"Produkt 1",url:"#"}, {img:"2.png",title:"Produkt 2",url:"#"}, {img:"3.png",title:"Produkt 3",url:"#"}, {img:"4.png",title:"Produkt 4",url:"#"}, {img:"5.png",title:"Produkt 5",url:"#"}, {img:"6.png",title:"Produkt 6",url:"#"}]
 };
-// SEITEN
-function showPage(page){
-    ["homePage","categoryPage","impressumPage"].forEach(id=>{document.getElementById(id).style.display="none";});
-    document.getElementById(page).style.display="block";
-    document.getElementById("backButton").style.display = page==="homePage"?"none":"inline";
-}
-// BURGER MENU
-function toggleMenu(){
-    const m=document.getElementById("menu");
-    m.style.display = m.style.display==="block"?"none":"block";
-}
-// IMPRESSUM
-function openImpressum(){toggleMenu(); showPage("impressumPage");}
-// ZURÜCK
-document.getElementById("backButton").onclick=()=>{showPage("homePage");}
-// SHARE
-function shareLink(){navigator.share?.({title:"Link",url:location.href})||alert("Dieses Gerät unterstützt die Teilen-Funktion nicht.");}
+
 // KATEGORIE ÖFFNEN
 function openCategory(id,title,image){
     showPage("categoryPage");
@@ -247,22 +179,51 @@ function openCategory(id,title,image){
     document.getElementById("linkCount").innerText=`Produkte (${list.length})`;
     const container=document.getElementById("linksContainer");
     container.innerHTML="";
-    list.forEach(item=>{container.innerHTML+=`<div class="link-item" onclick="window.open('${item.url}','_blank')"><img src="${item.img}"><p>${item.title}</p></div>`;});
+    list.forEach(item=>{
+        container.innerHTML+=`
+        <div class="link-item" onclick="window.open('${item.url}','_blank')">
+            <img src="${item.img}">
+            <p>${item.title}</p>
+        </div>`;
+    });
+    window.scrollTo(0,0);
 }
 
-// PROFIL ANIMATION BEIM SCROLL
+// SEITEN WECHSELN
+function showPage(page){
+    ["homePage","categoryPage","impressumPage","datenschutzPage"].forEach(id=>{
+        document.getElementById(id).style.display="none";
+    });
+    document.getElementById(page).style.display="block";
+    document.getElementById("backButton").style.display = page==="homePage"?"none":"inline";
+    window.scrollTo(0,0);
+}
+
+// IMPRESSUM
+function openImpressum(){toggleMenu();showPage("impressumPage");}
+function openDatenschutz(){toggleMenu();showPage("datenschutzPage");}
+
+// ZURÜCK BUTTON
+function goBack(){showPage("homePage");}
+
+// SHARE
+function shareLink(){navigator.share?.({title:"Link",url:location.href})||alert("Dieses Gerät unterstützt die Teilen-Funktion nicht.");}
+
+// BURGER
+function toggleMenu(){
+    const m=document.getElementById("menu");
+    m.style.display=m.style.display==="block"?"none":"block";
+}
+
+// HEADER ANIMATION beim Scrollen
 window.addEventListener("scroll",()=>{
-    const pic=document.getElementById("profilePic");
-    const name=document.getElementById("profileName");
-    const headerPic=document.querySelector(".fixed-header img.profile-small");
-    const headerName=document.querySelector(".fixed-header .header-title");
-    const scrollY=Math.min(window.scrollY,130);
-    pic.style.width=`${130-scrollY}px`;
-    pic.style.height=`${130-scrollY}px`;
-    name.style.fontSize=`${24-scrollY/10}px`;
-    headerPic.style.opacity=scrollY/130;
-    headerName.style.opacity=scrollY/130;
+    let scroll=window.scrollY;
+    let img=document.getElementById("headerProfile");
+    let name=document.getElementById("headerName");
+    if(scroll>20){img.style.width="32px";img.style.height="32px";name.style.fontSize="16px";}
+    else{img.style.width="42px";img.style.height="42px";name.style.fontSize="18px";}
 });
 </script>
+
 </body>
 </html>
