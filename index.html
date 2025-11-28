@@ -3,87 +3,82 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Inasalomarii</title>
+
+<title>inasalomarii</title>
 
 <style>
-/* ----------------------------------------------------- */
-/* FARBTÖNE */
-/* ----------------------------------------------------- */
 :root {
     --bg: #FAF8F4;
     --card: #FFFFFF;
     --text: #2E2A27;
-    --accent: #DCC6A1;
-    --accent-dark: #B49B78;
 }
 
-/* ----------------------------------------------------- */
-/* BASIS */
-/* ----------------------------------------------------- */
+/* ---------- GLOBAL ---------- */
 body {
     margin: 0;
-    font-family: Helvetica, sans-serif;
+    font-family: "Helvetica", sans-serif;
     background: var(--bg);
     color: var(--text);
-    overflow-x: hidden;
 }
 
-.container { padding: 20px; }
-
-/* ----------------------------------------------------- */
-/* FIXIERTE HEADER LEISTE */
-/* ----------------------------------------------------- */
+/* ---------- FIXIERTE KOPFZEILE ---------- */
 .fixed-header {
     position: fixed;
-    top: 0; left: 0; right: 0;
-    height: 60px;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 55px;
     background: var(--bg);
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     padding: 10px 15px;
-    z-index: 50;
+    z-index: 200;
     border-bottom: 1px solid #ddd;
 }
 
-.fixed-header #fixedProfileWrap {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: .3s ease;
-}
-
-.fixed-header.scrolled #fixedProfileWrap {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.fixed-header img {
-    width: 32px; height: 32px;
+#headerSmallPic {
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
+    display: none;
     object-fit: cover;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.18);
 }
 
-/* Zurückbutton nur sichtbar außerhalb Startseite */
-#backButton { visibility: hidden; }
-body.show-back #backButton { visibility: visible; }
+#headerSmallName {
+    display: none;
+    font-weight: bold;
+    font-size: 17px;
+    margin-left: 8px;
+}
 
-/* ----------------------------------------------------- */
-/* BURGER MENÜ */
-/* ----------------------------------------------------- */
-#burger { font-size: 28px; cursor: pointer; }
+/* Zurück Button nicht auf Home anzeigen */
+#backBtn {
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: none;
+}
 
+/* BURGER ICON */
+#burger {
+    font-size: 28px;
+    cursor: pointer;
+}
+
+/* ---------- SIDEBAR ---------- */
 #menu {
     position: fixed;
-    top: 0; right: -70%;
-    width: 70%;
+    top: 0;
+    right: -75%;
+    width: 75%;
     height: 100%;
     background: var(--card);
-    box-shadow: -3px 0 15px rgba(0,0,0,0.2);
+    box-shadow: -3px 0 20px rgba(0,0,0,0.2);
     padding: 25px;
-    z-index: 80;
+    z-index: 300;
     transition: right .35s ease;
 }
 
@@ -94,91 +89,83 @@ body.show-back #backButton { visibility: visible; }
     padding: 12px 0;
     font-size: 18px;
     color: var(--text);
+    text-decoration: none;
 }
 
-/* ----------------------------------------------------- */
-/* PROFILBILD */
-/* ----------------------------------------------------- */
+/* ---------- PROFILE ---------- */
+.container {
+    padding: 20px;
+    padding-top: 90px;
+}
+
 #profile {
     text-align: center;
-    padding-top: 90px; /* Platz für fixierte Leiste */
+    margin-top: 20px;
 }
 
 #profile img {
-    width: 130px; height: 130px;
+    width: 130px;
+    height: 130px;
     border-radius: 50%;
     object-fit: cover;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.3);
-    transition: .25s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    transition: transform .25s;
 }
 
-#profile.shrink img {
-    width: 0px; height: 0px;
-    opacity: 0;
-}
-
-/* Benutzername */
 #profile h2 {
-    margin-top: 10px;
-    margin-bottom: 15px;
-    font-size: 22px;
-    transition: .25s ease;
+    margin-top: 8px; /* näher an Bild */
+    margin-bottom: 12px;
 }
 
-#profile.shrink h2 {
-    opacity: 0;
-    transform: translateY(-10px);
-}
-
-/* ----------------------------------------------------- */
-/* SOCIAL ICONS */
-/* ----------------------------------------------------- */
+/* ---------- SOCIAL ICONS ---------- */
 #social-icons {
     display: flex;
     justify-content: center;
-    gap: 28px;
+    gap: 26px;
+    margin-bottom: 15px;
+}
+
+#social-icons div,
+.contact-box {
+    text-align: center;
+    cursor: pointer;
+    transition: transform .25s;
+}
+
+#social-icons div:hover,
+.contact-box:hover {
+    transform: scale(1.1);
 }
 
 #social-icons img {
-    width: 55px; height: 55px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
+    padding: 7px;
     background: white;
-    padding: 8px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.25);
-    transition: .2s;
-}
-
-#social-icons img:hover {
-    transform: scale(1.12);
+    object-fit: cover;
+    box-shadow: 0 3px 7px rgba(0,0,0,0.2);
 }
 
 #social-icons p {
-    margin: 5px 0 0 0;
+    margin-top: 4px;
     font-size: 14px;
 }
 
-/* ----------------------------------------------------- */
-/* MAIL ICON */
-/* ----------------------------------------------------- */
+/* ---------- MAIL BUTTON ---------- */
 .contact-box {
-    margin-top: 18px;
     display: flex;
     justify-content: center;
-    gap: 8px;
-    font-size: 18px;
-    cursor: pointer;
-    transition: .2s;
-}
-.contact-box:hover {
-    transform: scale(1.05);
-}
-.contact-box .mail-icon {
-    font-size: 28px;
+    align-items: center;
+    gap: 7px;
+    padding-top: 5px;
 }
 
-/* ----------------------------------------------------- */
-/* KATEGORIEN */
-/* ----------------------------------------------------- */
+.mail-icon {
+    font-size: 30px;
+}
+
+/* ---------- KATEGORIEN ---------- */
 .category-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -189,25 +176,25 @@ body.show-back #backButton { visibility: visible; }
     background: var(--card);
     padding: 10px;
     border-radius: 12px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    cursor: pointer;
     text-align: center;
 }
 
 .category img {
     width: 100%;
-    height: 140px;
+    aspect-ratio: 1/1;
     object-fit: cover;
     border-radius: 10px;
 }
 
-/* ----------------------------------------------------- */
-/* KATEGORIESEITE */
-/* ----------------------------------------------------- */
+/* ---------- KATEGORIESEITE ---------- */
 #categoryImage {
     width: 100%;
-    height: 180px;
-    border-radius: 12px;
+    aspect-ratio: 1/1;
     object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 10px;
 }
 
 .links-grid {
@@ -218,246 +205,258 @@ body.show-back #backButton { visibility: visible; }
 
 .link-item {
     background: var(--card);
-    padding: 10px;
-    border-radius: 10px;
     text-align: center;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 8px;
+    cursor: pointer;
 }
 
 .link-item img {
     width: 100%;
-    height: 140px;
+    aspect-ratio: 1/1;
     object-fit: cover;
     border-radius: 10px;
 }
 
-/* ----------------------------------------------------- */
-/* COOKIE BANNER */
-/* ----------------------------------------------------- */
+/* ---------- COOKIE BANNER ---------- */
 #cookieBanner {
     position: fixed;
-    bottom: 0; left: 0; right: 0;
-    background: #ffffff;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
     padding: 15px;
-    box-shadow: 0 -2px 10px rgba(0,0,0,.15);
-    z-index: 200;
-    display: none;
+    box-shadow: 0 -3px 10px rgba(0,0,0,0.15);
+    text-align: center;
+    z-index: 500;
 }
 
-/* ----------------------------------------------------- */
-/* SEITEN VERSTECKT */
-/* ----------------------------------------------------- */
-.page { display: none; }
-#homePage { display: block; }
 </style>
 </head>
 <body>
 
-<!-- ------------------------------------------------------------ -->
-<!-- FIXIERTE LEISTE -->
-<!-- ------------------------------------------------------------ -->
-<div class="fixed-header" id="fixedHeader">
-    <button id="backButton" onclick="goBack()">←</button>
+<!-- ---------- HEADER ---------- -->
+<div class="fixed-header">
 
-    <div id="fixedProfileWrap">
-        <img src="1.png">
-        <strong>inasalomarii</strong>
+    <button id="backBtn" onclick="goBack()">←</button>
+
+    <div style="display:flex;align-items:center;">
+        <img id="headerSmallPic" src="1.png">
+        <span id="headerSmallName">inasalomarii</span>
     </div>
 
     <div style="display:flex;gap:15px;">
-        <button onclick="shareLink()">Teilen</button>
         <div id="burger" onclick="toggleMenu()">☰</div>
     </div>
+
 </div>
 
-<!-- ------------------------------------------------------------ -->
-<!-- SIDEBAR -->
-<!-- ------------------------------------------------------------ -->
+<!-- ---------- SIDEBAR ---------- -->
 <div id="menu">
-    <h3>Menü</h3>
+    <div style="font-size:28px;cursor:pointer;margin-bottom:15px;" onclick="toggleMenu()">✕</div>
 
-    <a onclick="openImpressum()">📄 Impressum</a>
-    <a onclick="openDatenschutz()">🔒 Datenschutzerklärung</a>
-
-    <button onclick="toggleMenu()">Schließen</button>
+    <a href="#" onclick="openImpressum()">📄 Impressum</a>
+    <a href="#" onclick="openDatenschutz()">🔒 Datenschutz</a>
 </div>
 
-<!-- ------------------------------------------------------------ -->
-<!-- STARTSEITE -->
-<!-- ------------------------------------------------------------ -->
-<div id="homePage" class="page container">
+<!-- ---------- HOME ---------- -->
+<div id="homePage" class="container">
 
     <div id="profile">
-        <img src="1.png">
-        <h2>inasalomarii</h2>
+        <img id="bigPic" src="1.png">
+        <h2 id="bigName">inasalomarii</h2>
 
+        <!-- SOCIAL ICONS -->
         <div id="social-icons">
-            <div onclick="window.open('https://www.instagram.com/omariinas/')">
+
+            <div onclick="window.open('https://www.instagram.com/omariinas/', '_blank')">
                 <img src="ig-logo.png">
                 <p>@omariinas</p>
             </div>
 
-            <div onclick="window.open('https://www.tiktok.com/@inasalomarii')">
+            <div onclick="window.open('https://www.tiktok.com/@inasalomarii', '_blank')">
                 <img src="tt-logo.png">
                 <p>@inasalomarii</p>
             </div>
+
         </div>
 
-        <div class="contact-box" onclick="location.href='mailto:inasalomaribusiness@icloud.com'">
+        <!-- MAIL BUTTON -->
+        <div class="contact-box" onclick="window.location.href='mailto:inasalomaribusiness@icloud.com'">
             <span class="mail-icon">✉️</span>
             <strong>Kontakt</strong>
         </div>
+
     </div>
 
     <h3>Kategorien</h3>
 
     <div class="category-grid">
+
         <div class="category" onclick="openCategory('Kategorie1','Kategorie 1','2.png')">
             <img src="2.png"><p>Kategorie 1 (6)</p>
         </div>
+
         <div class="category" onclick="openCategory('Kategorie2','Kategorie 2','3.png')">
             <img src="3.png"><p>Kategorie 2 (6)</p>
         </div>
+
         <div class="category" onclick="openCategory('Kategorie3','Kategorie 3','4.png')">
             <img src="4.png"><p>Kategorie 3 (6)</p>
         </div>
+
         <div class="category" onclick="openCategory('Kategorie4','Kategorie 4','5.png')">
             <img src="5.png"><p>Kategorie 4 (6)</p>
         </div>
+
         <div class="category" onclick="openCategory('Kategorie5','Kategorie 5','6.png')">
             <img src="6.png"><p>Kategorie 5 (6)</p>
         </div>
+
         <div class="category" onclick="openCategory('Kategorie6','Kategorie 6','7.png')">
             <img src="7.png"><p>Kategorie 6 (6)</p>
         </div>
+
     </div>
+
 </div>
 
-<!-- ------------------------------------------------------------ -->
-<!-- KATEGORIESEITE -->
-<!-- ------------------------------------------------------------ -->
-<div id="categoryPage" class="page container">
+<!-- ---------- CATEGORY PAGE ---------- -->
+<div id="categoryPage" class="container" style="display:none;">
     <h2 id="categoryTitle"></h2>
     <img id="categoryImage">
     <h3 id="linkCount"></h3>
     <div id="linksContainer" class="links-grid"></div>
 </div>
 
-<!-- ------------------------------------------------------------ -->
-<!-- IMPRESSUM -->
-<!-- ------------------------------------------------------------ -->
-<div id="impressumPage" class="page container">
+<!-- ---------- IMPRESSUM ---------- -->
+<div id="impressumPage" class="container" style="display:none;">
     <h2>Impressum</h2>
-    <p><strong>Beispiel-Name GmbH</strong><br>
-    Musterstraße 5<br>
-    12345 Musterstadt</p>
-    <p>Email: kontakt@beispiel.de</p>
+    <p>Max Mustermann<br>
+    Musterstraße 12<br>
+    12345 Musterstadt<br><br>
+    E-Mail: info@example.com</p>
 </div>
 
-<!-- ------------------------------------------------------------ -->
-<!-- DATENSCHUTZ -->
-<!-- ------------------------------------------------------------ -->
-<div id="datenschutzPage" class="page container">
+<!-- ---------- DATENSCHUTZ ---------- -->
+<div id="datenschutzPage" class="container" style="display:none;">
     <h2>Datenschutzerklärung</h2>
-    <p>Dies ist ein Mustertext. Hier stehen später echte Datenschutzinfos.</p>
+    <p>Diese Seite dient als Beispiel. Hier werden Platzhaltertexte verwendet.</p>
 </div>
 
-<!-- ------------------------------------------------------------ -->
-<!-- COOKIE BANNER -->
-<!-- ------------------------------------------------------------ -->
+<!-- ---------- COOKIE BANNER ---------- -->
 <div id="cookieBanner">
-    Diese Webseite verwendet Cookies.
+    Diese Seite verwendet Cookies.  
     <button onclick="acceptCookies()">OK</button>
 </div>
 
 <script>
-/* PRODUKTLISTEN */
+
+/* ---------- PRODUKTE ---------- */
 const products = {
     Kategorie1: [
-        { img:"1.png", title:"Produkt 1", url:"#"},
-        { img:"2.png", title:"Produkt 2", url:"#"},
-        { img:"3.png", title:"Produkt 3", url:"#"},
-        { img:"4.png", title:"Produkt 4", url:"#"},
-        { img:"5.png", title:"Produkt 5", url:"#"},
-        { img:"6.png", title:"Produkt 6", url:"#"},
+        {img:"1.png",title:"Produkt 1",url:"#"},
+        {img:"2.png",title:"Produkt 2",url:"#"},
+        {img:"3.png",title:"Produkt 3",url:"#"},
+        {img:"4.png",title:"Produkt 4",url:"#"},
+        {img:"5.png",title:"Produkt 5",url:"#"},
+        {img:"6.png",title:"Produkt 6",url:"#"},
     ],
     Kategorie2: [...products.Kategorie1],
     Kategorie3: [...products.Kategorie1],
     Kategorie4: [...products.Kategorie1],
     Kategorie5: [...products.Kategorie1],
-    Kategorie6: [...products.Kategorie1]
+    Kategorie6: [...products.Kategorie1],
 };
 
-/* SEITEN WECHSEL */
-function showPage(id){
-    document.querySelectorAll(".page").forEach(p=>p.style.display="none");
-    document.getElementById(id).style.display="block";
-
-    document.body.classList.toggle("show-back", id !== "homePage");
-}
-
-/* BURGER */
-function toggleMenu(){
-    document.getElementById("menu").classList.toggle("show");
-}
-
-/* IMPRESSUM */
-function openImpressum(){ toggleMenu(); showPage("impressumPage"); }
-
-/* DATENSCHUTZ */
-function openDatenschutz(){ toggleMenu(); showPage("datenschutzPage"); }
-
-/* ZURÜCK */
-function goBack(){ showPage("homePage"); }
-
-/* KATEGORIEN */
+/* ---------- CATEGORY OPEN ---------- */
 function openCategory(id,title,img){
     showPage("categoryPage");
-    document.getElementById("categoryTitle").innerText=title;
-    document.getElementById("categoryImage").src=img;
+
+    document.getElementById("categoryTitle").innerText = title;
+    document.getElementById("categoryImage").src = img;
 
     const list = products[id];
-    document.getElementById("linkCount").innerText=`Produkte (${list.length})`;
+    document.getElementById("linkCount").innerText = `Produkte (${list.length})`;
 
     let html="";
     list.forEach(x=>{
-        html+=`
-        <div class="link-item" onclick="window.open('${x.url}')">
+        html += `
+        <div class="link-item" onclick="window.open('${x.url}','_blank')">
             <img src="${x.img}">
             <p>${x.title}</p>
         </div>`;
     });
-    document.getElementById("linksContainer").innerHTML=html;
+
+    document.getElementById("linksContainer").innerHTML = html;
+
+    document.getElementById("backBtn").style.display = "block";
 }
 
-/* TEILEN */
-function shareLink(){
-    navigator.share?.({ title:"Link", url:location.href })
-    || alert("Teilen wird nicht unterstützt.");
+/* ---------- PAGE SWITCH ---------- */
+function showPage(page) {
+    ["homePage","categoryPage","impressumPage","datenschutzPage"]
+        .forEach(id => document.getElementById(id).style.display="none");
+
+    document.getElementById(page).style.display="block";
+
+    if (page === "homePage") {
+        document.getElementById("backBtn").style.display = "none";
+    }
 }
 
-/* COOKIE BANNER */
-if(!localStorage.cookiesAccepted){
-    document.getElementById("cookieBanner").style.display="block";
+/* ---------- IMPRESSUM ---------- */
+function openImpressum() {
+    toggleMenu();
+    showPage("impressumPage");
+    document.getElementById("backBtn").style.display="block";
 }
+
+/* ---------- DATENSCHUTZ ---------- */
+function openDatenschutz() {
+    toggleMenu();
+    showPage("datenschutzPage");
+    document.getElementById("backBtn").style.display="block";
+}
+
+/* ---------- BACK ---------- */
+function goBack() {
+    showPage("homePage");
+}
+
+/* ---------- SIDEBAR ---------- */
+function toggleMenu(){
+    document.getElementById("menu").classList.toggle("show");
+}
+
+/* ---------- COOKIE ---------- */
 function acceptCookies(){
-    localStorage.cookiesAccepted=true;
     document.getElementById("cookieBanner").style.display="none";
 }
 
-/* SCROLL ANIMATION */
-window.addEventListener("scroll", ()=>{
-    const profile = document.getElementById("profile");
-    const fixedHeader=document.getElementById("fixedHeader");
+/* ---------- SCROLL ANIMATION (Instagram Style) ---------- */
+window.addEventListener("scroll", function(){
 
-    if(window.scrollY > 120){
-        profile.classList.add("shrink");
-        fixedHeader.classList.add("scrolled");
-    } else {
-        profile.classList.remove("shrink");
-        fixedHeader.classList.remove("scrolled");
+    let scrollY = window.scrollY;
+    const pic = document.getElementById("bigPic");
+    const name = document.getElementById("bigName");
+
+    if(scrollY < 80){
+        document.getElementById("headerSmallPic").style.display = "none";
+        document.getElementById("headerSmallName").style.display = "none";
+
+        pic.style.transform = `scale(${1 - scrollY/200})`;
+        pic.style.opacity = `${1 - scrollY/120}`;
+        name.style.opacity = `${1 - scrollY/120}`;
+    } 
+    else {
+        document.getElementById("headerSmallPic").style.display = "block";
+        document.getElementById("headerSmallName").style.display = "block";
     }
+
 });
+
 </script>
 
 </body>
