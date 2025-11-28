@@ -22,7 +22,7 @@
     }
 
     /* --------------------------------------------------------- */
-    /* TOP-BAR fixiert */
+    /* FIXED TOP BAR */
     /* --------------------------------------------------------- */
     #topbar {
         position: fixed;
@@ -35,40 +35,40 @@
         align-items: center;
         justify-content: space-between;
         padding: 10px 15px;
-        z-index: 20;
+        z-index: 9999;
         box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     }
 
     #topbar img {
-        height: 42px;
-        width: 42px;
+        height: 40px;
+        width: 40px;
         border-radius: 50%;
         object-fit: cover;
-        transition: 0.25s;
     }
 
     #topName {
         font-size: 18px;
         font-weight: bold;
-        transition: 0.25s;
         opacity: 0;
+        transition: 0.25s;
     }
 
     #burger {
-        font-size: 28px;
+        font-size: 30px;
         cursor: pointer;
+        user-select: none;
     }
 
     /* --------------------------------------------------------- */
-    /* Seitencontainer */
+    /* CONTAINER */
     /* --------------------------------------------------------- */
     .container {
         padding: 20px;
-        margin-top: 75px;
+        margin-top: 80px;
     }
 
     /* --------------------------------------------------------- */
-    /* PROFILBILD (Startseite) */
+    /* PROFILE AREA */
     /* --------------------------------------------------------- */
     #profile {
         text-align: center;
@@ -81,24 +81,25 @@
         border-radius: 50%;
         object-fit: cover;
         box-shadow: 0 3px 10px rgba(0,0,0,0.18);
+        margin-bottom: 10px;
         transition: 0.25s;
     }
 
     #username {
         font-size: 22px;
-        font-weight: bold;
-        margin-top: 10px;
+        margin-top: -5px;
         margin-bottom: 18px;
+        font-weight: bold;
     }
 
     /* --------------------------------------------------------- */
-    /* SOCIAL ICONS */
+    /* SOCIAL ICONS (SMALLER!) */
     /* --------------------------------------------------------- */
     #social-icons {
         display: flex;
         justify-content: center;
-        gap: 25px;
-        margin-bottom: 18px;
+        gap: 22px;
+        margin-bottom: 20px;
     }
 
     .social-box {
@@ -107,40 +108,34 @@
     }
 
     .social-box img {
-        width: 52px;
-        height: 52px;
+        width: 38px !important;
+        height: 38px !important;
         border-radius: 50%;
         background: white;
-        padding: 6px;
-        box-shadow: 0 3px 8px rgba(0,0,0,0.18);
+        padding: 5px;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.15);
         transition: 0.2s;
-    }
-
-    .social-username {
-        margin-top: 5px;
-        font-size: 14px;
     }
 
     .social-box:hover img {
         transform: scale(1.1);
     }
 
+    .social-username {
+        font-size: 13px;
+        margin-top: 4px;
+    }
+
     /* --------------------------------------------------------- */
-    /* KONTAKT */
+    /* CONTACT AREA */
     /* --------------------------------------------------------- */
     #contactArea {
         display: flex;
         justify-content: center;
         align-items: center;
         gap: 8px;
-        margin: 15px 0 25px 0;
+        margin-bottom: 25px;
         cursor: pointer;
-    }
-
-    #contactArea img {
-        width: 28px;
-        height: 28px;
-        object-fit: contain;
     }
 
     #contactArea span {
@@ -148,8 +143,14 @@
         color: var(--text);
     }
 
+    /* Envelope icon (SVG - no file needed!) */
+    .mailIcon {
+        width: 26px;
+        height: 26px;
+    }
+
     /* --------------------------------------------------------- */
-    /* KATEGORIEN */
+    /* CATEGORY CARDS */
     /* --------------------------------------------------------- */
     .category-grid {
         display: grid;
@@ -174,12 +175,12 @@
     }
 
     /* --------------------------------------------------------- */
-    /* KATEGORIE-SEITE */
+    /* CATEGORY PAGE */
     /* --------------------------------------------------------- */
     #categoryPage .header {
         display: flex;
-        align-items: center;
         justify-content: space-between;
+        align-items: center;
     }
 
     button {
@@ -187,85 +188,37 @@
         border: none;
         padding: 8px 14px;
         border-radius: 8px;
-        color: #fff;
+        color: white;
         cursor: pointer;
         font-size: 15px;
     }
 
-    .links-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 15px;
-        margin-top: 20px;
-    }
-
-    .link-item {
-        background: var(--card);
-        padding: 10px;
-        border-radius: 10px;
-        text-align: center;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-        cursor: pointer;
-    }
-
-    .link-item img {
-        width: 100%;
-        aspect-ratio: 1/1;
-        border-radius: 10px;
-        object-fit: cover;
-    }
-
     /* --------------------------------------------------------- */
-    /* MENU (Burger) */
+    /* MENU (SIDEBAR) */
     /* --------------------------------------------------------- */
     #menu {
         position: fixed;
-        right: -70%;
         top: 0;
+        right: -100%;    /* ← FIX: vollständig versteckt */
         width: 70%;
         height: 100%;
-        background: var(--card);
-        box-shadow: -3px 0 10px rgba(0,0,0,0.15);
+        background: white;
         padding: 20px;
-        z-index: 30;
-        transition: 0.4s;
+        box-shadow: -3px 0 10px rgba(0,0,0,0.15);
+        z-index: 9998;
+        transition: 0.4s ease;
     }
 
     #menu.open {
         right: 0;
     }
 
-    #menu h3 {
-        margin-top: 0;
-    }
-
-    /* ---------------------- Cookie Banner --------------------- */
-    #cookieBanner {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        background: #ffffff;
-        padding: 15px;
-        box-shadow: 0 -3px 10px rgba(0,0,0,0.15);
-        display: none;
-        z-index: 40;
-    }
-
-    #cookieBanner p {
-        font-size: 14px;
-    }
-
-    #cookieBanner button {
-        margin-top: 10px;
-        width: 100%;
-    }
 </style>
 </head>
 <body>
 
 <!-- ------------------------------------------------------------ -->
-<!-- FIXIERTE LEISTE OBEN -->
+<!-- FIXED TOP BAR -->
 <!-- ------------------------------------------------------------ -->
 <div id="topbar">
     <img id="topImg" src="1.png">
@@ -274,7 +227,7 @@
 </div>
 
 <!-- ------------------------------------------------------------ -->
-<!-- BURGER-MENU (mit Impressum + Datenschutz) -->
+<!-- SIDE MENU -->
 <!-- ------------------------------------------------------------ -->
 <div id="menu">
     <h3>Menü</h3>
@@ -287,18 +240,17 @@
 </div>
 
 <!-- ------------------------------------------------------------ -->
-<!-- STARTSEITE -->
+<!-- HOME PAGE -->
 <!-- ------------------------------------------------------------ -->
 <div id="homePage" class="container">
-
     <div id="profile">
         <img id="mainProfileImg" src="1.png">
 
         <div id="username">inasalomarii</div>
 
-        <!-- SOCIAL ICONS NEBENEINANDER -->
         <div id="social-icons">
-            <div class="social-box" onclick="window.open('https://www.instagram.com/omariinas/')">
+
+            <div class="social-box" onclick="window.open('https://www.instagram.com/omariinas')">
                 <img src="ig-logo.png">
                 <div class="social-username">@omariinas</div>
             </div>
@@ -307,11 +259,17 @@
                 <img src="tt-logo.png">
                 <div class="social-username">@inasalomarii</div>
             </div>
+
         </div>
 
-        <!-- KONTAKT -->
         <div id="contactArea" onclick="window.location.href='mailto:inasalomaribusiness@icloud.com'">
-            <img src="mail.png">
+
+            <!-- Perfect envelope icon -->
+            <svg class="mailIcon" viewBox="0 0 24 24" fill="none" stroke="#2E2A27" stroke-width="2">
+                <path d="M4 4h16v16H4z"/>
+                <path d="M4 4l8 8 8-8"/>
+            </svg>
+
             <span>Kontakt</span>
         </div>
     </div>
@@ -319,41 +277,34 @@
     <h3>Kategorien</h3>
 
     <div class="category-grid">
-        <div class="category" onclick="openCategory('Kategorie1', 'Kategorie 1', '2.png')">
+        <div class="category" onclick="openCategory('Kategorie1','Kategorie 1','2.png')">
             <img src="2.png"><p>Kategorie 1 (6)</p>
         </div>
-
-        <div class="category" onclick="openCategory('Kategorie2', 'Kategorie 2', '3.png')">
+        <div class="category" onclick="openCategory('Kategorie2','Kategorie 2','3.png')">
             <img src="3.png"><p>Kategorie 2 (6)</p>
         </div>
-
-        <div class="category" onclick="openCategory('Kategorie3', 'Kategorie 3', '4.png')">
+        <div class="category" onclick="openCategory('Kategorie3','Kategorie 3','4.png')">
             <img src="4.png"><p>Kategorie 3 (6)</p>
         </div>
-
-        <div class="category" onclick="openCategory('Kategorie4', 'Kategorie 4', '5.png')">
+        <div class="category" onclick="openCategory('Kategorie4','Kategorie 4','5.png')">
             <img src="5.png"><p>Kategorie 4 (6)</p>
         </div>
-
-        <div class="category" onclick="openCategory('Kategorie5', 'Kategorie 5', '6.png')">
+        <div class="category" onclick="openCategory('Kategorie5','Kategorie 5','6.png')">
             <img src="6.png"><p>Kategorie 5 (6)</p>
         </div>
-
-        <div class="category" onclick="openCategory('Kategorie6', 'Kategorie 6', '7.png')">
+        <div class="category" onclick="openCategory('Kategorie6','Kategorie 6','7.png')">
             <img src="7.png"><p>Kategorie 6 (6)</p>
         </div>
     </div>
 </div>
 
 <!-- ------------------------------------------------------------ -->
-<!-- KATEGORIE-SEITE -->
+<!-- CATEGORY PAGE -->
 <!-- ------------------------------------------------------------ -->
 <div id="categoryPage" class="container" style="display:none;">
     <div class="header">
         <button onclick="goBack()">← Zurück</button>
-
-        <strong id="catUsername">inasalomarii</strong>
-
+        <strong>inasalomarii</strong>
         <button onclick="shareLink()">Teilen</button>
     </div>
 
@@ -361,12 +312,11 @@
     <img id="categoryImage" style="width:100%;border-radius:12px;">
 
     <h3 id="linkCount"></h3>
-
     <div id="linksContainer" class="links-grid"></div>
 </div>
 
 <!-- ------------------------------------------------------------ -->
-<!-- RECHTLICHE SEITEN -->
+<!-- LEGAL PAGE -->
 <!-- ------------------------------------------------------------ -->
 <div id="legalPage" class="container" style="display:none;">
     <button onclick="closeLegal()">← Zurück</button>
@@ -374,125 +324,105 @@
     <div id="legalContent"></div>
 </div>
 
-<!-- ------------------------------------------------------------ -->
-<!-- COOKIE BANNER -->
-<!-- ------------------------------------------------------------ -->
-<div id="cookieBanner">
-    <p>Diese Website verwendet Cookies, um die Nutzung zu verbessern.  
-        Weitere Informationen findest du in der Datenschutzerklärung.</p>
-    <button onclick="acceptCookies()">OK</button>
-</div>
-
 <script>
-/* PRODUKTBEISPIELE */
+/* ---------------- PRODUCTS (6 each) ---------------- */
 const products = {
-    Kategorie1: [
-        { img: "1.png", title: "Produkt 1", url: "#" },
-        { img: "2.png", title: "Produkt 2", url: "#" },
-        { img: "3.png", title: "Produkt 3", url: "#" },
-        { img: "4.png", title: "Produkt 4", url: "#" },
-        { img: "5.png", title: "Produkt 5", url: "#" },
-        { img: "6.png", title: "Produkt 6", url: "#" }
-    ],
-    Kategorie2: [
-        { img: "1.png", title: "Produkt 1", url: "#" },
-        { img: "2.png", title: "Produkt 2", url: "#" },
-        { img: "3.png", title: "Produkt 3", url: "#" },
-        { img: "4.png", title: "Produkt 4", url: "#" },
-        { img: "5.png", title: "Produkt 5", url: "#" },
-        { img: "6.png", title: "Produkt 6", url: "#" }
-    ],
-    Kategorie3: [
-        { img: "1.png", title: "Produkt 1", url: "#" },
-        { img: "2.png", title: "Produkt 2", url: "#" },
-        { img: "3.png", title: "Produkt 3", url: "#" },
-        { img: "4.png", title: "Produkt 4", url: "#" },
-        { img: "5.png", title: "Produkt 5", url: "#" },
-        { img: "6.png", title: "Produkt 6", url: "#" }
-    ],
-    Kategorie4: [
-        { img: "1.png", title: "Produkt 1", url: "#" },
-        { img: "2.png", title: "Produkt 2", url: "#" },
-        { img: "3.png", title: "Produkt 3", url: "#" },
-        { img: "4.png", title: "Produkt 4", url: "#" },
-        { img: "5.png", title: "Produkt 5", url: "#" },
-        { img: "6.png", title: "Produkt 6", url: "#" }
-    ],
-    Kategorie5: [
-        { img: "1.png", title: "Produkt 1", url: "#" },
-        { img: "2.png", title: "Produkt 2", url: "#" },
-        { img: "3.png", title: "Produkt 3", url: "#" },
-        { img: "4.png", title: "Produkt 4", url: "#" },
-        { img: "5.png", title: "Produkt 5", url: "#" },
-        { img: "6.png", title: "Produkt 6", url: "#" }
-    ],
-    Kategorie6: [
-        { img: "1.png", title: "Produkt 1", url: "#" },
-        { img: "2.png", title: "Produkt 2", url: "#" },
-        { img: "3.png", title: "Produkt 3", url: "#" },
-        { img: "4.png", title: "Produkt 4", url: "#" },
-        { img: "5.png", title: "Produkt 5", url: "#" },
-        { img: "6.png", title: "Produkt 6", url: "#" }
-    ]
+    Kategorie1:[{img:"1.png",title:"Produkt 1",url:"#"},
+                {img:"2.png",title:"Produkt 2",url:"#"},
+                {img:"3.png",title:"Produkt 3",url:"#"},
+                {img:"4.png",title:"Produkt 4",url:"#"},
+                {img:"5.png",title:"Produkt 5",url:"#"},
+                {img:"6.png",title:"Produkt 6",url:"#"}],
+
+    Kategorie2:[{img:"1.png",title:"Produkt 1",url:"#"},
+                {img:"2.png",title:"Produkt 2",url:"#"},
+                {img:"3.png",title:"Produkt 3",url:"#"},
+                {img:"4.png",title:"Produkt 4",url:"#"},
+                {img:"5.png",title:"Produkt 5",url:"#"},
+                {img:"6.png",title:"Produkt 6",url:"#"}],
+
+    Kategorie3:[{img:"1.png",title:"Produkt 1",url:"#"},
+                {img:"2.png",title:"Produkt 2",url:"#"},
+                {img:"3.png",title:"Produkt 3",url:"#"},
+                {img:"4.png",title:"Produkt 4",url:"#"},
+                {img:"5.png",title:"Produkt 5",url:"#"},
+                {img:"6.png",title:"Produkt 6",url:"#"}],
+
+    Kategorie4:[{img:"1.png",title:"Produkt 1",url:"#"},
+                {img:"2.png",title:"Produkt 2",url:"#"},
+                {img:"3.png",title:"Produkt 3",url:"#"},
+                {img:"4.png",title:"Produkt 4",url:"#"},
+                {img:"5.png",title:"Produkt 5",url:"#"},
+                {img:"6.png",title:"Produkt 6",url:"#"}],
+
+    Kategorie5:[{img:"1.png",title:"Produkt 1",url:"#"},
+                {img:"2.png",title:"Produkt 2",url:"#"},
+                {img:"3.png",title:"Produkt 3",url:"#"},
+                {img:"4.png",title:"Produkt 4",url:"#"},
+                {img:"5.png",title:"Produkt 5",url:"#"},
+                {img:"6.png",title:"Produkt 6",url:"#"}],
+
+    Kategorie6:[{img:"1.png",title:"Produkt 1",url:"#"},
+                {img:"2.png",title:"Produkt 2",url:"#"},
+                {img:"3.png",title:"Produkt 3",url:"#"},
+                {img:"4.png",title:"Produkt 4",url:"#"},
+                {img:"5.png",title:"Produkt 5",url:"#"},
+                {img:"6.png",title:"Produkt 6",url:"#"}]
 };
 
-/* KATEGORIE ÖFFNEN */
-function openCategory(id, title, image) {
-    document.getElementById("homePage").style.display = "none";
-    document.getElementById("categoryPage").style.display = "block";
+/* CATEGORY OPEN */
+function openCategory(id,title,image){
+    document.getElementById("homePage").style.display="none";
+    document.getElementById("categoryPage").style.display="block";
 
-    document.getElementById("categoryTitle").innerText = title;
-    document.getElementById("categoryImage").src = image;
+    document.getElementById("categoryTitle").innerText=title;
+    document.getElementById("categoryImage").src=image;
 
-    const list = products[id];
-    document.getElementById("linkCount").innerText = `Produkte (${list.length})`;
+    const list=products[id];
+    document.getElementById("linkCount").innerText=`Produkte (${list.length})`;
 
-    const container = document.getElementById("linksContainer");
-    container.innerHTML = "";
-
-    list.forEach(item => {
-        container.innerHTML += `
-            <div class="link-item" onclick="window.open('${item.url}', '_blank')">
-                <img src="${item.img}">
-                <p>${item.title}</p>
-            </div>
-        `;
+    let c=document.getElementById("linksContainer");
+    c.innerHTML="";
+    list.forEach(item=>{
+        c.innerHTML+=`
+        <div class="link-item" onclick="window.open('${item.url}')">
+            <img src="${item.img}">
+            <p>${item.title}</p>
+        </div>`;
     });
 }
 
-/* BACK */
-function goBack() {
-    document.getElementById("categoryPage").style.display = "none";
-    document.getElementById("homePage").style.display = "block";
+/* GO BACK */
+function goBack(){
+    document.getElementById("categoryPage").style.display="none";
+    document.getElementById("homePage").style.display="block";
 }
 
 /* SHARE */
-function shareLink() {
-    if (navigator.share) {
-        navigator.share({ title: "Link", url: location.href });
-    } else {
-        alert("Dein Gerät unterstützt diese Funktion nicht.");
-    }
+function shareLink(){
+    if(navigator.share){
+        navigator.share({title:"Link",url:location.href});
+    } else alert("Teilen wird nicht unterstützt.");
 }
 
 /* MENU */
-function toggleMenu() {
+function toggleMenu(){
     document.getElementById("menu").classList.toggle("open");
 }
 
-/* LEGAL SEITEN */
-function openLegal(type) {
+/* LEGAL PAGES */
+function openLegal(type){
     toggleMenu();
-    document.getElementById("homePage").style.display = "none";
-    document.getElementById("categoryPage").style.display = "none";
-    document.getElementById("legalPage").style.display = "block";
+    document.getElementById("homePage").style.display="none";
+    document.getElementById("categoryPage").style.display="none";
+    document.getElementById("legalPage").style.display="block";
 
-    const titleEl = document.getElementById("legalTitle");
-    const content = document.getElementById("legalContent");
+    let t=document.getElementById("legalTitle");
+    let c=document.getElementById("legalContent");
 
-    if (type === "impressum") {
-        titleEl.innerText = "Impressum";
-        content.innerHTML = `
+    if(type==="impressum"){
+        t.innerText="Impressum";
+        c.innerHTML=`
             <p><strong>Beispiel-Name</strong></p>
             <p>Beispielstraße 123<br>12345 Musterstadt</p>
             <p>E-Mail: beispiel@example.com</p>
@@ -500,45 +430,30 @@ function openLegal(type) {
         `;
     }
 
-    if (type === "datenschutz") {
-        titleEl.innerText = "Datenschutzerklärung";
-        content.innerHTML = `
-            <p>Diese Website verarbeitet keine personenbezogenen Daten außer den technisch notwendigen Cookies.</p>
-            <p>Wir speichern keine IP-Adressen dauerhaft und verwenden keine Tracking-Dienste.</p>
+    if(type==="datenschutz"){
+        t.innerText="Datenschutzerklärung";
+        c.innerHTML=`
+            <p>Diese Website nutzt nur technisch notwendige Cookies.</p>
+            <p>Es erfolgt kein Tracking, keine Analyse, keine Speicherung persönlicher Daten.</p>
         `;
     }
 }
 
-function closeLegal() {
-    document.getElementById("legalPage").style.display = "none";
-    document.getElementById("homePage").style.display = "block";
+function closeLegal(){
+    document.getElementById("legalPage").style.display="none";
+    document.getElementById("homePage").style.display="block";
 }
 
-/* COOKIE BANNER */
-if (!localStorage.getItem("cookiesAccepted")) {
-    document.getElementById("cookieBanner").style.display = "block";
-}
-function acceptCookies() {
-    localStorage.setItem("cookiesAccepted", "true");
-    document.getElementById("cookieBanner").style.display = "none";
-}
-
-/* SCROLL-PROFIL-ANIMATION */
+/* SCROLL ANIMATION FOR PROFILE */
 window.addEventListener("scroll", () => {
-    const scrollY = window.scrollY;
-    const img = document.getElementById("mainProfileImg");
-    const topImg = document.getElementById("topImg");
-    const username = document.getElementById("username");
-    const topName = document.getElementById("topName");
+    const y=window.scrollY;
+    const img=document.getElementById("mainProfileImg");
+    const topName=document.getElementById("topName");
 
-    const scale = Math.max(0.5, 1 - scrollY / 300);
-    img.style.transform = `scale(${scale})`;
+    const scale=Math.max(0.5,1-y/250);
+    img.style.transform=`scale(${scale})`;
 
-    if (scrollY > 130) {
-        topName.style.opacity = 1;
-    } else {
-        topName.style.opacity = 0;
-    }
+    topName.style.opacity = y>120 ? 1 : 0;
 });
 </script>
 
